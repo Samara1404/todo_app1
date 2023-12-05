@@ -1,21 +1,23 @@
 import 'dart:convert';
 
 class Todo {
-  const Todo({required this.title, 
-  this.description,    
-  required this.isCompleted,
-  required this.author});
-  
+  Todo(
+      {this.id,
+      required this.title,
+      this.description,
+      required this.isCompleted,
+      required this.author});
 
+  String? id;
   final String title;
-  final String? description;  
+  final String? description;
   final bool isCompleted;
-  final String author;  
+  final String author;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'title': title,
-      'description': description,      
+      'description': description,
       'isCompleted': isCompleted,
       'author': author,
     };
@@ -24,7 +26,7 @@ class Todo {
   factory Todo.fromMap(Map<String, dynamic> map) {
     return Todo(
       title: map['title'] as String,
-      description: map['description'] as String?,      
+      description: map['description'] as String?,
       isCompleted: map['isCompleted'] as bool,
       author: map['author'] as String,
     );
@@ -32,6 +34,6 @@ class Todo {
 
   String toJson() => json.encode(toMap());
 
-  factory Todo.fromJson(String source) => 
-  Todo.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Todo.fromJson(String source) =>
+      Todo.fromMap(json.decode(source) as Map<String, dynamic>);
 }
