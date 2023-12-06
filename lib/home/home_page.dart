@@ -35,8 +35,10 @@ Future<void> deleteTodo(Todo todo) async{
   @override 
   Widget build(BuildContext context) {     
     return Scaffold( 
+      backgroundColor: Colors.blue[300],
       appBar: AppBar(        
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,         
+        backgroundColor: Colors.blue[200], 
+        centerTitle: true,       
         title: Text(widget.title), 
       ), 
       body:StreamBuilder(stream: readTodos(),
